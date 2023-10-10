@@ -15,53 +15,33 @@ import {
   FlatList,
 } from 'react-native';
 
+type TypedHeaderProps = {
+  title: string
+  description?: string
+}
+
+const Header = ({ title, description = "" }: TypedHeaderProps) => {
+
+  console.log("description", description);
+  
+  return (
+    <>
+      <View style={styles.headerLogo}>
+        <Text style={styles.logo}>{title}</Text>
+      </View>
+      <View style={styles.hintLogin}>
+        <Text>{description}</Text>
+      </View>
+    </>
+  )
+}
+
 
 function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.headerLogo}>
-        <Text style={styles.logo}>facebook</Text>
-      </View>
-      <View style={styles.hintLogin}>
-        <Text>Trước tiên bạn phải đăng nhập</Text>
-      </View>
-      <View style={styles.formLogin}>
-        <View style={{ width: "100%", gap: 10 }}>
-          <View style={styles.inputForm}>
-            <View style={styles.textInput}>
-              <Text>Email so dien thoai</Text>
-            </View>
-            <View style={styles.line} />
-            <View style={styles.textInput}>
-              <Text>Mật khẩu</Text>
-            </View>
-          </View>
-          <View style={styles.buttonLogin}>
-            <Text style={styles.textButton}>Đăng nhập</Text>
-          </View>
-        </View>
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <View style={styles.buttonRegister}>
-            <Text style={styles.textButton}>Đăng nhập</Text>
-          </View>
-          <Text style={styles.textForgotPassword}>Quên mật khẩu? Trung tâm trợ giúp</Text>
-        </View>
-      </View>
-      <View style={{ flexDirection: "row" }}>
-        <View style={{ flex: 1, alignItems: "center", paddingVertical: 10, gap: 4 }}>
-          <Text>Quen mat khau</Text>
-          <Text>Quen mat khau</Text>
-          <Text>Quen mat khau</Text>
-          <Text>Quen mat khau</Text>
-        </View>
-        <View style={{ flex: 1, alignItems: "center", paddingVertical: 10, gap: 4 }}>
-          <Text>Quen mat khau</Text>
-          <Text>Quen mat khau</Text>
-          <Text>Quen mat khau</Text>
-          <Text>Quen mat khau</Text>
-        </View>
-      </View>
-      <Text style={{ textAlign: "center" }}>Facebook 2015</Text>
+      <Header title={"facebook"} description="Trước tiên bạn phải đăng nhập" />
+      <Header title='google' />
     </View>
   );
 }
